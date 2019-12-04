@@ -16,11 +16,7 @@ namespace yazlab2
 
     public partial class Form1 : Form
     {
-        int j = 10, i = 0;
-
-        MainThread mt = new MainThread();
-        Thread mt1 = new Thread(new ThreadStart(mt.requestAccept));
-        Thread mt2 = new Thread(new ThreadStart(mt.requestReturn));
+        int j = 10, i = 0, threadCounter = 2;
         
         /*List<Thread> subthreads = new List<Thread>(new ThreadStart(work2));
         Thread threadcreator = new Thread(new ThreadStart(work3));
@@ -28,6 +24,31 @@ namespace yazlab2
 
         public Form1()
         {
+            MainThread mt = new MainThread();
+            /* Thread mt1 = new Thread(new ThreadStart(mt.requestAccept));
+             Thread mt2 = new Thread(new ThreadStart(mt.requestReturn));
+             mt1.Priority = ThreadPriority.Highest;
+             mt2.Priority = ThreadPriority.AboveNormal;*/
+            Thread mt1 = new Thread(new ThreadStart(mt.mainRequest));
+            mt1.Priority = ThreadPriority.Highest;
+            mt1.Start();
+
+            SubThreads st = new SubThreads();
+            List<Thread> sts = new List<Thread>();
+            int startingSubs = 2, threadCounter = 2;
+            for (i = 0; i < startingSubs; i++)
+            {
+                Thread stt = new Thread(new ThreadStart(st.subRequest));
+                stt.Name = "ID" + i;
+                stt.Priority = ThreadPriority.AboveNormal;
+                stt.Start();
+                sts.Add(stt);
+            }
+
+            ThreadCreator tc = new ThreadCreator(sts, threadCounter);
+
+            ThreadWatcher tw = new ThreadWatcher(sts);
+
             InitializeComponent();
         }
 

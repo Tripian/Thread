@@ -8,4 +8,3 @@ C:\Users\Alp Eren SUKAS\source\repos\yazlab2\yazlab2\obj\Debug\yazlab2.csproj.Ge
 C:\Users\Alp Eren SUKAS\source\repos\yazlab2\yazlab2\obj\Debug\yazlab2.csproj.CoreCompileInputs.cache
 C:\Users\Alp Eren SUKAS\source\repos\yazlab2\yazlab2\obj\Debug\yazlab2.exe
 C:\Users\Alp Eren SUKAS\source\repos\yazlab2\yazlab2\obj\Debug\yazlab2.pdb
-C:\Users\Alp Eren SUKAS\source\repos\yazlab2\yazlab2\obj\Debug\MainThread.resources
